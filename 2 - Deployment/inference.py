@@ -1,7 +1,7 @@
 import requests  # for sending request to server
 import json  # encoding data
 import re
-import numpy as np  # for manipulation of arrays
+import numpy as np  #for manipulation of arrays
 import tensorflow_hub as hub
 
 
