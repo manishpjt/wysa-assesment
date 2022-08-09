@@ -5,10 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: |
+          python -m pip install markupsafe==2.0.1
       - uses: grantmcconnaughey/lintly-flake8-github-action@v1.0
         with:
           # The GitHub API token to create reviews with
-          token: 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
+          token: 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
           # Fail if "new" violations detected or "any", default "new"
           failIf: new
           # Additional arguments to pass to flake8, default "." (current directory)
