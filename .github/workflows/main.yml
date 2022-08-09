@@ -9,13 +9,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-       - name: Install dependencies
+     - name: Install dependencies
         run: |
           python -m pip install -r requirements.txt
       - uses: grantmcconnaughey/lintly-flake8-github-action@v1.0
         with:
           # The GitHub API token to create reviews with
-          token: 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
+          token: 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
           # Fail if "new" violations detected or "any", default "new"
           failIf: new
           # Additional arguments to pass to flake8, default "." (current directory)
