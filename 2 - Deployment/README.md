@@ -5,6 +5,7 @@
 ![image](https://miro.medium.com/max/1024/0*O8-qn6_zToP9hKrq)
 
 * Tensorflow Serving follows directory structure like this to search and host the model.
+
 ![image](../assets/images/dir_struc.jpg)
 
 * Once you followed the above structure, just execute this command to host the model.
