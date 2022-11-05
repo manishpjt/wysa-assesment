@@ -16,18 +16,15 @@ jobs:
       - uses: 8BitJonny/gh-get-current-pr@2.1.3
         id: PR
       - run: echo "Your PR number is ${{ steps.PR.outputs.number }} and its JSON is ${{ steps.PR.outputs.pr }}"
+        if: steps.PR.outcome == 'success'
+        env:
+          prNumber: ${{ steps.PR.outputs.number }}
+          prUrl: ${{ steps.PR.outputs.pr_url }}
+          prTitle: ${{ steps.PR.outputs.pr_title }}
+          prBody: ${{ steps.PR.outputs.pr_body }}
 
-      - name: PR number
-        run: echo ${{steps.PR.outputs.number}}
-
-      - name: PR url
-        run: echo ${{ steps.PR.outputs.pr_url }}
-
-      - name: PR Tile
-        run: echo ${{ steps.PR.outputs.pr_title }}
-
-      - name: PR Body
-        run: echo ${{ steps.PR.outputs.pr_body }}
+      - name: Print PR
+        run: echo "echo PR number $env.prNumber -- PR url $env.prUrl  --  PR Title $env.prTitle  --  PR Body $env.prBody"
 
       - name: "print completed"
         run: echo "Merge completed"
