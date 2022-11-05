@@ -26,8 +26,8 @@ jobs:
           prTitle: ${{ steps.PR.outputs.pr_title }}
           prBody: ${{ steps.PR.outputs.pr_body }}
         
-      - name: Get PR number
-        run: echo "$prNumber"
+      - name: Get PR body
+        run: echo "${{ steps.PR.outputs.pr_body }}"
 
       - name: "print completed"
         run: echo "Merge completed"
