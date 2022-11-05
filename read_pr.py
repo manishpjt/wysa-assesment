@@ -1,3 +1,3 @@
 import os
 
-print("PR Number", os.enviorn["env.prNumber"])
+print("PR Number", os.environ["env.prNumber"])
