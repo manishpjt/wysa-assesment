@@ -27,7 +27,7 @@ jobs:
           prBody: ${{ steps.PR.outputs.pr_body }}
           
       - name: Get PR number
-        run: echo "$steps.PR.env.prNumber"
+        run: echo "$prNumber"
 
       - name: "print completed"
         run: echo "Merge completed"
