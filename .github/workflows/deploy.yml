@@ -1,0 +1,16 @@
+name: flake8 Lint
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  on-merge:
+    runs-on: ubuntu-latest
+    name: On_merge
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: "print completed"
+        run: echo "Merge completed"
