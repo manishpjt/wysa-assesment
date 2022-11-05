@@ -25,9 +25,9 @@ jobs:
           prUrl: ${{ steps.PR.outputs.pr_url }}
           prTitle: ${{ steps.PR.outputs.pr_title }}
           prBody: ${{ steps.PR.outputs.pr_body }}
-
-      - name: Run python
-        run: python3 read_pr.py
+          
+      - name: Get PR number
+        run: echo "$steps.PR.env.prNumber"
 
       - name: "print completed"
         run: echo "Merge completed"
