@@ -11,11 +11,11 @@ jobs:
     name: On_merge
     steps:
       - name: Check out source repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
         with:
           description: |
             PR no. ${{ github.event.pull_request.number }}
             PR title ${{ github.event.pull_request.title }}
 
       - name: Reading PR description
-        run: echo "${{ github.event.pull_request.title }} PR- ${{ github.event.pull_request.description }}"
+        run: echo ${{ github.event.pull_request.title }}
