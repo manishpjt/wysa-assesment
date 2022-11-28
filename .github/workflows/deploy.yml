@@ -11,4 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name : Print Title of PR
-      run: echo The Title of your PR is ${{ github.event.pull_request.title }} and text is ${{ github.event.pull_request.description }}
+      run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+    
+    - name: Print text of PR
+      run: echo Text is ${{ github.event.pull_request.description }}
