@@ -17,5 +17,4 @@ jobs:
         uses: actions/setup-python@v2
 
       - name: Reading PR description
-        uses: actions/checkout@master
         run: echo "${{ github.event.pull_request.title }} PR- ${{ github.event.pull_request.description }}"
