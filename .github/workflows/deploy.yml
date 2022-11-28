@@ -7,7 +7,6 @@ on:
 
 jobs:
   on-merge:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     name: On_merge
     steps:
