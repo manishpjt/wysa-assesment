@@ -16,3 +16,8 @@ jobs:
     
     - name: Print text of PR
       run: echo Text is ${{ github.event.pull_request.description }}
+
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJSON(github) }}
+      run: echo "$GITHUB_CONTEXT"
