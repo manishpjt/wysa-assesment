@@ -18,7 +18,7 @@ jobs:
       run: echo The Title of your PR is ${{ github.event.pull_request.title }}
     
     - name: Print text of PR
-      run: echo Text is ${{ github.event.pull_request.description }}
+      run: echo Text is ${{ github.event.pull_request.body }}
 
     - name: Dump GitHub context
       env:
