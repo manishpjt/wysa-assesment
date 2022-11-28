@@ -16,18 +16,6 @@ jobs:
       - name: Set up Python environment
         uses: actions/setup-python@v2
 
-      - uses: 8BitJonny/gh-get-current-pr@2.1.3
-        id: PR
-      - run: echo "Your PR number is ${{ steps.PR.outputs.number }} and its JSON is ${{ steps.PR.outputs.pr }}"
-        if: steps.PR.outcome == 'success'
-        env:
-          prNumber: ${{ steps.PR.outputs.number }}
-          prUrl: ${{ steps.PR.outputs.pr_url }}
-          prTitle: ${{ steps.PR.outputs.pr_title }}
-          prBody: ${{ steps.PR.outputs.pr_body }}
-        
-      - name: Get PR body
-        run: echo "${{ steps.PR.outputs.pr_body }}"
-
-      - name: "print completed"
-        run: echo "Merge completed"
+      - name: Reading PR description
+        uses: actions/checkout@master
+        run: echo "${{ github.event.pull_request.title }} PR- ${{ github.event.pull_request.description }}"
