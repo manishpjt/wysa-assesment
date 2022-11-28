@@ -1,21 +1,21 @@
-name: flake8 Lint
+name: Deploy
 
 on:
   push:
-    branches:
-      - master
+    pull_request:
+      types:
+        - closed
+      branches:
+        - master
 
 jobs:
   on-merge:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     name: On_merge
     steps:
       - name: Check out source repository
         uses: actions/checkout@v3
-        with:
-          description: |
-            PR no. ${{ github.event.pull_request.number }}
-            PR title ${{ github.event.pull_request.title }}
 
       - name: Reading PR description
         run: echo ${{ github.event.pull_request.title }}
