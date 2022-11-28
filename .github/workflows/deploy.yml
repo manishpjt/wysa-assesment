@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Check out source repository
         uses: actions/checkout@master
-        description: |
-          PR no. ${{ github.event.pull_request.number }}
-          PR title ${{ github.event.pull_request.title }}
+        with:
+          description: |
+            PR no. ${{ github.event.pull_request.number }}
+            PR title ${{ github.event.pull_request.title }}
 
       - name: Reading PR description
         run: echo "${{ github.event.pull_request.title }} PR- ${{ github.event.pull_request.description }}"
