@@ -26,7 +26,7 @@ jobs:
       run: echo Text is "$PR_BODY"
 
     - name: Get author name
-      run: echo "PR_AUTHOR=$(python3 get_author_name)" >> $GITHUB_ENV
+      run: echo "PR_AUTHOR=$(python3 get_author_name.py)" >> $GITHUB_ENV
 
     - name: Print author name
       run: echo "author name $PR_AUTHOR"
