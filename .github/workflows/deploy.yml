@@ -16,6 +16,11 @@ jobs:
       PR_TITLE: ${{ github.event.pull_request.title }}
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
+    - name: Use python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+      
     - name: Print PR number
       run: echo "$PR_NUMBER"
 
