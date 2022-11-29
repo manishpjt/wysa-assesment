@@ -21,6 +21,9 @@ jobs:
     - name: Print text of PR
       run: echo Text is ${{ github.event.pull_request.body }}
 
+    - name: Print author name
+      run: echo author name ${{ github.event.pull_request.author.name}}
+
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
