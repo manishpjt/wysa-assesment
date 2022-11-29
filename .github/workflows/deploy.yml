@@ -11,18 +11,25 @@ jobs:
   print_title_of_pr:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-20.04
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_TITLE: ${{ github.event.pull_request.title }}
+      PR_BODY: ${{ github.event.pull_request.body }}
     steps:
     - name: Print PR number
-      run: echo ${{ github.event.pull_request.number }} 
+      run: echo "$PR_NUMBER"
 
     - name : Print Title of PR
-      run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+      run: echo "The Title of your PR is $PR_TITLE"
     
     - name: Print text of PR
-      run: echo Text is ${{ github.event.pull_request.body }}
+      run: echo Text is "$PR_BODY"
+
+    - name: Get author name
+      run: echo "PR_AUTHOR=$(python3 get_author_name)" >> $GITHUB_ENV
 
     - name: Print author name
-      run: echo author name ${{ github.event.pull_request.issue.user.login }}
+      run: echo "author name $PR_AUTHOR"
 
     - name: Dump GitHub context
       env:
