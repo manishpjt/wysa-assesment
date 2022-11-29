@@ -16,6 +16,9 @@ jobs:
       PR_TITLE: ${{ github.event.pull_request.title }}
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
     - name: Use python
       uses: actions/setup-python@v4
       with:
