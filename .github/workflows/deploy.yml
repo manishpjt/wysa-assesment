@@ -22,7 +22,7 @@ jobs:
       run: echo Text is ${{ github.event.pull_request.body }}
 
     - name: Print author name
-      run: echo author name ${{ github.event.pull_request.user.login }}
+      run: echo author name ${{ github.event.pull_request.issue.user.login }}
 
     - name: Dump GitHub context
       env:
