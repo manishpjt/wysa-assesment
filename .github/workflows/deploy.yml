@@ -18,11 +18,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
+
     - name: Use python
       uses: actions/setup-python@v4
       with:
         python-version: '3.8'
+      
+    - name: Install request
+      run: pip3 install requests
       
     - name: Print PR number
       run: echo "$PR_NUMBER"
