@@ -19,3 +19,9 @@ jobs:
 
     - name: Make directory using python
       run: python3 make_dir.py
+    
+    - name: Check tmp
+      run: ls /tmp
+
+    - name: Check PRs
+      run: ls /tmp/prs
