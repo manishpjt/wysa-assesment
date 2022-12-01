@@ -3,18 +3,11 @@ name: Deploy
 on:
   push:
     branches:
-      - development
-  pull_request:
-   types: [closed]
+      - directory_test
 
 jobs:
-  print_title_of_pr:
-    if: github.event.pull_request.merged == true
+  make_directory:
     runs-on: ubuntu-20.04
-    env:
-      PR_NUMBER: ${{ github.event.pull_request.number }}
-      PR_TITLE: ${{ github.event.pull_request.title }}
-      PR_BODY: ${{ github.event.pull_request.body }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -23,26 +16,6 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.8'
-      
-    - name: Install request
-      run: pip3 install requests
-      
-    - name: Print PR number
-      run: echo "$PR_NUMBER"
 
-    - name : Print Title of PR
-      run: echo "The Title of your PR is $PR_TITLE"
-    
-    - name: Print text of PR
-      run: echo Text is "$PR_BODY"
-
-    - name: Get author name
-      run: echo "PR_AUTHOR=$(python3 get_author_name.py)" >> $GITHUB_ENV
-
-    - name: Print author name
-      run: echo "author name $PR_AUTHOR"
-
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJSON(github) }}
-      run: echo "$GITHUB_CONTEXT"
+    - name: Make directory using python
+      run: python3 make_dir.py
